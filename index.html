@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1>Simple Calculator</h1>
+
+        <div id="main">
+            <div id="textbox">
+                 <input type="text" id="texts" readonly>
+            </div>
+
+            <div id="button-container">
+            <div>
+
+                <button id="1">1</button>
+                <button id="2">2</button>
+                <button id="3">3</button>
+                <button id="+">+</button>
+            </div>
+            <div>
+                <button id="4">4</button>
+                <button id="5">5</button>
+                <button id="6">6</button>
+                <button id="-">-</button>
+            </div>
+            <div>
+                <button id="7">7</button>
+                <button id="8">8</button>
+                <button id="9">9</button>
+                <button id="*">*</button>
+            </div>
+            <div>
+                <button id="clear">AC</button>
+                <button id="0">0</button>
+                <button id="/">/</button>
+                <button id="=">=</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    let text = document.getElementById("texts");
+    let currInput = "";
+
+    document.getElementById("1").addEventListener("click", function () {
+        currInput += "1";
+        text.value = currInput;
+    });
+
+    document.getElementById("2").addEventListener("click", function () {
+        currInput += "2";
+        text.value = currInput;
+    });
+
+    document.getElementById("3").addEventListener("click", function () {
+        currInput += "3";
+        text.value = currInput;
+    });
+
+
+    document.getElementById("+").addEventListener("click", function () {
+        currInput += "+";
+        text.value = currInput;
+    });
+
+    document.getElementById("4").addEventListener("click", function () {
+        currInput += "4";
+        text.value = currInput;
+    });
+
+    document.getElementById("5").addEventListener("click", function () {
+        currInput += "5";
+        text.value = currInput;
+    });
+
+    document.getElementById("6").addEventListener("click", function () {
+        currInput += "6";
+        text.value = currInput;
+    });
+
+    document.getElementById("7").addEventListener("click", function () {
+        currInput += "7";
+        text.value = currInput;
+    });
+    document.getElementById("8").addEventListener("click", function () {
+        currInput += "8";
+        text.value = currInput;
+    });
+    document.getElementById("9").addEventListener("click", function () {
+        currInput += "9";
+        text.value = currInput;
+    });
+    document.getElementById("0").addEventListener("click", function () {
+        currInput += "0";
+        text.value = currInput;
+    });
+    document.getElementById("=").addEventListener("click", function () {
+        let ans = eval(currInput);
+        currInput = "";
+        text.value = ans;
+
+    });
+
+    document.getElementById("-").addEventListener("click", function () {
+        currInput += "-";
+        text.value = currInput;
+    });
+
+    document.getElementById("*").addEventListener("click", function () {
+        currInput += "*";
+        text.value = currInput;
+    });
+
+    document.getElementById("/").addEventListener("click", function () {
+        currInput += "/";
+        text.value = currInput;
+    });
+
+    document.getElementById("clear").addEventListener("click", function () {
+        currInput = "";
+        text.value = currInput;
+    });
+
+
+</script>
+
+</html>
