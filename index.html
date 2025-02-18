@@ -9,85 +9,67 @@
 </head>
 
 <body>
-    <div>
-        <h1>Simple Calculator</h1>
-
-        <div id="main">
-            <div id="textbox">
-                 <input type="text" id="texts" readonly>
-            </div>
-
-            <div id="button-container">
-            <div>
-
-                <button id="1">1</button>
-                <button id="2">2</button>
-                <button id="3">3</button>
-                <button id="+">+</button>
-            </div>
-            <div>
-                <button id="4">4</button>
-                <button id="5">5</button>
-                <button id="6">6</button>
-                <button id="-">-</button>
-            </div>
-            <div>
-                <button id="7">7</button>
-                <button id="8">8</button>
-                <button id="9">9</button>
-                <button id="*">*</button>
-            </div>
-            <div>
-                <button id="clear">AC</button>
-                <button id="0">0</button>
-                <button id="/">/</button>
-                <button id="=">=</button>
-            </div>
+    <div class="calculator">
+        <div class="display">
+            <span id="operation"></span>
+            <input type="text" id="displayInput">
         </div>
+        <div class="container">
+            <div>
+                <input type="button" value="C" class="special">
+                <input type="button" value="Del" class="special">
+                <input type="button" value="/" class="special">
+                <input type="button" value="%" class="special">
+            </div>
+            <div>
+                <input type="button" value="7">
+                <input type="button" value="8">
+                <input type="button" value="9">
+                <input type="button" value="*" class="special">
+            </div>
+            <div>
+                <input type="button" value="4">
+                <input type="button" value="5">
+                <input type="button" value="6"/>
+                <input type="button" value="+" class="special">
+            </div>
+            <div>
+                <input type="button" value="1">
+                <input type="button" value="2">
+                <input type="button" value="3">
+                <input type="button" value="-" class="special">
+            </div>
+            <div>
+                <input type="button" value="0">
+                <input type="button" value=".">
+                <input type="button" value="=" id="equal">
+            </div>
         </div>
     </div>
 
 </body>
 <script>
-    let text = document.getElementById("texts");
-    let currInput = "";
+    const buttons= document.querySelectorAll("input[type='button']");
+const dispalyInput= document.getElementById("displayInput");
+const opeartion= document.getElementById("operation")
 
-    document.getElementById("1").addEventListener("click", function () {
-        currInput += "1";
-        text.value = currInput;
-    });
+// opeartion.innerHTML= "test js22 2 "
 
-    document.getElementById("2").addEventListener("click", function () {
-        currInput += "2";
-        text.value = currInput;
-    });
-
-    document.getElementById("3").addEventListener("click", function () {
-        currInput += "3";
-        text.value = currInput;
-    });
-
-
-    document.getElementById("+").addEventListener("click", function () {
-        currInput += "+";
-        text.value = currInput;
-    });
-
-    document.getElementById("4").addEventListener("click", function () {
-        currInput += "4";
-        text.value = currInput;
-    });
-
-    document.getElementById("5").addEventListener("click", function () {
-        currInput += "5";
-        text.value = currInput;
-    });
-
-    document.getElementById("6").addEventListener("click", function () {
-        currInput += "6";
-        text.value = currInput;
-    });
-
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        if(btn.value == "="){
+            opeartion.innerHTML= dispalyInput.value
+            dispalyInput.value= eval(dispalyInput.value)
+        }else if(btn.value== "C"){
+            opeartion.innerHTML= ""
+            dispalyInput.value= ""
+        }else if(btn.value == "Del"){
+            dispalyInput.value= dispalyInput.value.slice(0, -1)
+        }else{
+            dispalyInput.value += btn.value;
+        }
+    })
+})
     document.getElementById("7").addEventListener("click", function () {
         currInput += "7";
         text.value = currInput;
